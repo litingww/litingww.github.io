@@ -64,16 +64,36 @@
 }
 
 a {
-  color: #df28a8;
+  color: #ff6a7b;
   /* ac146f */
   text-decoration: none;
 }
 
 a:focus,
 a:hover {
-  color: #f09228;
-  text-decoration: none;
+  color: #8e4bd6;
+  background: inherit;
+  text-decoration: underline;
 }
+
+.carousel-button {
+  background-color: #ff6a7b;
+  color: white;
+  border: none;
+  padding: 1px 8px;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 1%;
+}
+
+.carousel-button:hover {
+  background-color: #da3044;
+}
+
+
 
 body,
 td,
