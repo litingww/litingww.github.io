@@ -23,7 +23,7 @@
                   Liting Wen
                 </p>
                 <p>
-      Hi there 👋 ! I’m a second year Master’s student in Computer Vision at the <a href="https://www.ri.cmu.edu/">Robotics Institute</a>, <a href="https://www.cmu.edu/">Carnegie Mellon University</a>, advised by <a href="https://www.laszlojeni.com/">Prof. László A. Jeni</a>.  <br><br>
+      Hi there 👋 ! I’m a second-year Master’s student in Computer Vision at the <a href="https://www.ri.cmu.edu/">Robotics Institute</a>, <a href="https://www.cmu.edu/">Carnegie Mellon University</a>, advised by <a href="https://www.laszlojeni.com/">Prof. László A. Jeni</a>.  <br><br>
       I’m also a member of <a href="https://anysyn3d.github.io/">AnySyn3D</a>, a non-profit research interest group for 3D vision, advised by <a href="https://www.xxlong.site/">Prof. Xiaoxiao Long</a>.
                 </p>
                 <p style="text-align:center">
@@ -138,8 +138,7 @@
             <tr>
               <td>
                 <h2>Miscellanea</h2>
-                <!-- <p>I love living every day as an exploration. Not all journeys are formal — some begin with curiosity and end in unexpected places. This space celebrates those discoveries🎁.</p> -->
-                <p>I love living every day as an exploration. This space celebrates the scenery discovered along the way🎁.</p>
+                <!-- <p>I love living every day as an exploration. This space celebrates the scenery discovered along the way🎁.</p> -->
               </td>
             </tr>
           </tbody></table>
@@ -147,10 +146,10 @@
 
           <!---------------------1. game--------------------->
             <tr>
-              <td colspan="2" style="padding-left:16px; padding-bottom:4px;">
-                <p style="margin:0;"><strong>• I'm a game developer 🎮 and 3D artist 🎨. I create immersive worlds that speak louder than words — those wonderful moments continually fuel and inspire my research in 3D vision.</strong> </p>
-                <p style="margin-top:8px; margin-bottom:0;">✨ Here are some of my works in AR/VR, 3D modeling, VFX (visual effects), and games:</p>
-                <!-- <p style="margin:0;"><strong>• I'm a game developer 🎮 and 3D artist 🎨. I create immersive worlds that speak louder than words — a medium for sharing my thoughts and celebrating beauty. They continually fuel and inspire my research.</strong></p> -->
+              <td colspan="2" style="padding-left:16px; padding-top:16px; padding-bottom:4px;">
+                <p style="margin:0;"><strong>• I'm a game developer 🎮 & 3D artist 🔮. I create immersive 3D worlds that speak louder than words — those wonderful moments continually fuel and inspire my research in 3D vision.</strong> </p>
+                <p style="margin-top:8px; margin-bottom:0;">✨ Here are some of my works in AR/VR, VFX (visual effects), 3D modeling, and games:</p>
+                <!-- <p style="margin:0;"><strong>• I'm a game developer 🎮 and 3D artist 🎨. I create immersive 3D worlds that speak louder than words — a medium for sharing my thoughts and celebrating beauty. They continually fuel and inspire my research.</strong></p> -->
               </td>
             </tr>
             <!------ 1.1 image (default) ------>
@@ -161,13 +160,23 @@
                 </div>
               </td>
               <td style="padding:8px 8px 2px 8px; width:80%; vertical-align:middle">
-                <em id="carousel-caption">111-default</em>
+                <p style="margin: 1px;"><strong id="carousel-caption">Lord Rabbit: AR Application for Intangible Cultural Heritage</strong></p>
+                <p id="carousel-caption-0" style="margin: 4px 0 0 0; font-size: 0.95em;">
+                    <strong>Liting Wen</strong>, 
+                    <a>Liwei Wang</a>, 
+                    <a>Yingqi Tian</a>, 
+                    <a>Zimo Yang</a>
+                </p>
+                <em id="carousel-caption-1">
+                  <span style="color:red;">Special Grand Prize</span>, 3D Digital Innovation Design Competition, Beijing, 2023
+                </em>
+                <p id="carousel-caption-2">[Tools: Unity, RealityCapture] We conducted on-site 3D scanning and refinement of Lord Rabbit; developed multiple interactive features including card-based model switching, gesture-controlled rotation and scaling, and 3D model coloring.</p>
               </td>
             </tr>
 
             <!-------- 1.2 buttons -------->
             <tr>
-              <td colspan="2" style="padding:8px 8px 16px 8px">
+              <td colspan="2" style="padding:8px 25% 16px 25%">
                 <div style="
                   margin-top: 0px;
                   display: flex;
@@ -180,7 +189,7 @@
                 <!-- dot -->
                   <div id="carousel-dots" style="
                     display: flex;
-                    gap: 5%;
+                    gap: 10%;
                     justify-content: center;
                     flex-grow: 1;
                   "></div>
@@ -195,27 +204,57 @@
               const items = [
                 {
                   img: "images/misc/debate.png",
-                  caption: "111"
+                  caption: "Lord Rabbit: AR Application for Intangible Cultural Heritage",
+                  caption0: `<strong>Liting Wen</strong>, 
+                    <a>Liwei Wang</a>, 
+                    <a>Yingqi Tian</a>, 
+                    <a>Zimo Yang</a>`,
+                  caption1: "<span style='color:red;'>Special Grand Prize</span>, 3D Digital Innovation Design Competition, Beijing, 2023",
+                  caption2: "[Tools: Unity, RealityCapture] We conducted on-site 3D scanning and refinement of Lord Rabbit; developed multiple interactive features including card-based model switching, gesture-controlled rotation and scaling, and 3D model coloring.",
                 },
                 {
                   img: "images/misc/debate.png",
-                  caption: "222"
+                  caption: "RESET: A Futuristic VFX Short Film",
+                  caption0: `<strong>Liting Wen</strong>, 
+                    <a>Zimo Yang</a>`,
+                  caption1: "<span style='color:red;'>3rd Prize</span>, 11th National College Digital Art & Design Awards (China), 2023",
+                  caption2: "[Tool: Nuke] We shot the original footage and created the visual effects in Nuke. The short film explores the relationship between humanity and nature in a speculative future.",
                 },
                 {
                   img: "images/misc/debate.png",
-                  caption: "333"
+                  caption: "3D Reconstruction and Animation of an Ancient Chinese Landscape",
+                  caption0: `<strong>Liting Wen</strong>, 
+                    <a>Zimo Yang</a>, 
+                    <a>Yu Sun</a>`,
+                  caption1: "<span style='color:red;'>3rd Prize</span>, Beijing College Student Animation Design Awards, 2022",
+                  caption2: "[Tool: Blender] We reconstructed and animated mountains, sky, lake, and mist, along with their spatial interactions, in Blender, inspired by an ancient Chinese landscape painting.",
                 },
                 {
                   img: "images/misc/debate.png",
-                  caption: "444"
+                  caption: "Mindscape: A VR Exploration Game",
+                  caption0: `<a>Yingqi Tian</a>, 
+                    <a>Zimo Yang</a>, 
+                    <strong>Liting Wen</strong>, 
+                    <a>Liwei Wang</a>`,
+                  caption1: "<span style='color:red;'>2nd Prize</span>, 3D Digital Innovation Design Competition, Beijing, 2023",
+                  caption2: "[Tools: Blender, Unity] We used Blender for 3D modeling and Unity for VR game development. Players explore the game world through a VR headset and controllers, engaging in interactions such as archery, foraging, NPC conversations, and treasure hunting.",
                 },
                 {
                   img: "images/misc/debate.png",
-                  caption: "555"
+                  caption: "Memory Archives: An Open World Role-Playing Game",
+                  caption0: `<a>Yu Sun</a>, 
+                    <strong>Liting Wen</strong>, 
+                    <a>Zimo Yang</a>`,
+                  caption1: "",
+                  caption2: "[Tools: Unity] We developed a multi-level Unity game featuring combat, exploration, and collectible mechanics, along with custom movement controls and responsive environmental systems. Some assets were from the Unity Asset Store.",
                 },
                 {
                   img: "images/misc/debate.png",
-                  caption: "666"
+                  caption0: `<strong>Liting Wen</strong>`,
+                  caption: "Virtual Diary: Roaming in VR through Gaze Interaction",
+                  caption1: "",
+                  // caption1: "My Favorite💗 !",
+                  caption2: "[Tools: Unity] Users roam through a virtual environment and interact with embedded videos and images via gaze. I created it as a diary to document lovely moments of my life 💗. Some assets were from the Unity Asset Store.",
                 },
               ];
 
@@ -224,6 +263,9 @@
               function updateCarousel() {
                 document.getElementById("carousel-image").src = items[current].img;
                 document.getElementById("carousel-caption").textContent = items[current].caption;
+                document.getElementById("carousel-caption-0").innerHTML = items[current].caption0 || "";
+                document.getElementById("carousel-caption-1").innerHTML = items[current].caption1;
+                document.getElementById("carousel-caption-2").textContent = items[current].caption2;
                 updateDots();
               }
 
@@ -245,7 +287,7 @@
                   dot.style.width = "8px";
                   dot.style.height = "8px";
                   dot.style.borderRadius = "50%";
-                  dot.style.backgroundColor = i === current ? "#ff6a7b" : "#ccc";   
+                  dot.style.backgroundColor = i === current ? "#7e67ff" : "#ccc";   
                   dot.style.display = "inline-block";
                   dot.style.cursor = "pointer";
                   dot.onclick = () => {
@@ -261,7 +303,7 @@
 
 
 
-          <!---------------------3. debate-------------------->
+          <!---------------------2. debate-------------------->
             <tr>
               <td colspan="2" style="padding-left:16px; padding-top:16px; padding-bottom:4px;">
                 <p style="margin:0;"><strong>• I'm a debater 💬. I enjoy public discussion as a way to explore and challenge the ideas behind how we see the world.</strong></p>
@@ -277,25 +319,170 @@
               </td>
             </tr>
             
-          <!---------------------4. fencing--------------------->
+          <!---------------------3. fencing--------------------->
             <tr>
               <td colspan="2" style="padding-left:16px; padding-top:16px; padding-bottom:4px;">
-                <p style="margin:0;"><strong>• I'm an épée fencer 🤺— the spirit of competition has always fired me up. Recently, I've also discovered an interest in pool 🎱.</strong></p>
+                <p style="margin:0;"><strong>• I'm an épée fencer 🤺. Stepping onto the piste for one-on-one combat always fires me up.</strong></p>
                 <!-- <p style="margin:0;"><strong>• I'm an épée fencer 🤺, and I've recently discovered an interest in pool 🎱.</strong></p> -->
               </td>
             </tr>
             <tr>
               <td style="padding:16px;width:20%;vertical-align:middle">
-                <img src="images/misc/misc_debate.jpg" alt="fencing photo" width="160" style="border-style: none">
+                <img src="images/misc/fencing_2.jpg" alt="fencing photo" width="160" style="border-style: none">
               </td>
               <td style="padding:8px;width:80%;vertical-align:middle">
                 <em>Member of the Chinese Fencing Association (CFA)</em>
               </td>
             </tr>
 
+          <!---------------------4. music--------------------->
+            <!-- <tr>
+              <td colspan="2" style="padding-left:16px; padding-bottom:4px;">
+                <p style="margin:0;"><strong>• I play piano and guzheng, and I compose electronic music as well 🎶.</strong> </p>
+              </td>
+            </tr> -->
+            <!------ 4.1 image (default) ------>
+            <!-- <tr>
+              <td style="padding:16px 16px 4px 16px; width:20%; vertical-align:middle">
+                <div style="position: relative; width: 160px;">
+                  <img id="carousel-image-2" src="images/misc/debate.png" alt="carousel photo" width="160" style="border-style: none; display: block;">
+                </div>
+              </td>
+              <td style="padding:8px 8px 2px 8px; width:80%; vertical-align:middle">
+                <p style="margin: 1px;"><strong id="carousel-caption2">Lord Rabbit: AR Application for Intangible Cultural Heritage</strong></p>
+                <em id="carousel-caption-1-2">
+                  <span style="color:red;">Special Prize</span>, National 3D Digital Innovation Design Competition, Beijing, 2023
+                </em>
+                <p id="carousel-caption-2-2">[Tools: Unity, RealityCapture] We conducted on-site 3D scanning and refinement of Lord Rabbit; developed multiple interactive features including card-based model switching, gesture-controlled rotation and scaling, and 3D model coloring.</p>
+              </td>
+            </tr> -->
 
+            <!-------- 4.2 buttons -------->
+            <!-- <tr>
+              <td colspan="2" style="padding:8px 8px 16px 8px">
+                <div style="
+                  margin-top: 0px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  width: 100%;
+                ">
+                  <button class="carousel-button" onclick="prevSlide2()">←</button>
+                  <div id="carousel-dots-2" style="
+                    display: flex;
+                    gap: 5%;
+                    justify-content: center;
+                    flex-grow: 1;
+                  "></div>
+                  <button class="carousel-button" onclick="nextSlide2()">→</button>
+                </div>
+              </td>
+            </tr> -->
+     
+            <!-------- 4.3 components -------->
+            <script>
+              const items2 = [
+                {
+                  img: "images/misc/debate.png",
+                  caption: "Lord Rabbit: AR Application for Intangible Cultural Heritage",
+                  caption1: "<span style='color:red;'>Special Prize</span>, 3D Digital Innovation Design Competition, Beijing, 2023",
+                  caption2: "[Tools: Unity, RealityCapture] We conducted on-site 3D scanning and refinement of Lord Rabbit; developed multiple interactive features including card-based model switching, gesture-controlled rotation and scaling, and 3D model coloring.",
+                },
+                {
+                  img: "images/misc/debate.png",
+                  caption: "RESET: A Futuristic VFX Short Film",
+                  caption1: "<span style='color:red;'>3rd Prize</span>, 11th National College Digital Art & Design Awards (China), 2023",
+                  caption2: "[Tool: Nuke] We shot the original footage and created the visual effects in Nuke. The short film explores the relationship between humanity and nature in a speculative future.",
+                },
+                {
+                  img: "images/misc/debate.png",
+                  caption: "3D Reconstruction and Animation of an Ancient Chinese Landscape",
+                  caption1: "<span style='color:red;'>3rd Prize</span>, Beijing College Student Animation Design Awards, 2022",
+                  caption2: "[Tool: Blender] We reconstructed and animated mountains, sky, lake, and mist, along with their spatial interactions, in Blender, inspired by an ancient Chinese landscape painting.",
+                },
+                {
+                  img: "images/misc/debate.png",
+                  caption: "Mindscape: A VR Exploration Game",
+                  caption1: "<span style='color:red;'>2nd Prize</span>, 3D Digital Innovation Design Competition, Beijing, 2023",
+                  caption2: "[Tools: Blender, Unity] We used Blender for 3D modeling and Unity for VR game development. Players explore the game world through a VR headset and controllers, engaging in interactions such as archery, foraging, NPC conversations, and treasure hunting.",
+                },
+              ];
+
+              let current2 = 0;
+
+              function updateCarousel2() {
+                document.getElementById("carousel-image-2").src = items2[current2].img;
+                document.getElementById("carousel-caption2").textContent = items2[current2].caption;
+                document.getElementById("carousel-caption-1-2").innerHTML = items2[current2].caption1;
+                document.getElementById("carousel-caption-2-2").textContent = items2[current2].caption2;
+                updateDots2();
+              }
+
+              function prevSlide2() {
+                current2 = (current2 - 1 + items2.length) % items2.length;
+                updateCarousel2();
+              }
+
+              function nextSlide2() {
+                current2 = (current2 + 1) % items2.length;
+                updateCarousel2();
+              }
+
+              function updateDots2() {
+                const dotContainer2 = document.getElementById("carousel-dots-2");
+                dotContainer2.innerHTML = "";
+                for (let i = 0; i < items2.length; i++) {
+                  const dot2 = document.createElement("span");
+                  dot2.style.width = "8px";
+                  dot2.style.height = "8px";
+                  dot2.style.borderRadius = "50%";
+                  dot2.style.backgroundColor = i === current2 ? "#7e67ff" : "#ccc";   
+                  dot2.style.display = "inline-block";
+                  dot2.style.cursor = "pointer";
+                  dot2.onclick = () => {
+                    current2 = i;
+                    updateCarousel2();
+                  };
+                  dotContainer2.appendChild(dot2);
+                }
+              }
+                
+              updateDots2();
+            </script>
+
+            <!---------------------5. Some Awards--------------------->
+            <tr>
+              <td colspan="2" style="padding-left:16px; padding-top:16px; padding-bottom:4px;">
+                <p style="margin:0;"><strong>• Some awards: </strong></p>
+                <p style="margin-top:8px; margin-bottom:0; margin-left:12px; margin-right:12px;">
+                  <em>Outstanding Graduate of Beijing</em> (Top 5%, highest graduation honor)
+                  <span style="float:right;">2024</span>
+                </p>
+                <p style="margin-top:4px; margin-bottom:0; margin-left:12px; margin-right:12px;">
+                  <em>University Scholarship</em>
+                  <span style="float:right;">2021/2022/2023</span>
+                </p>
+                <p style="margin-top:4px; margin-bottom:0; margin-left:12px; margin-right:12px;">
+                  <em>University Outstanding Contributor in Culture & Sports</em>
+                  <span style="float:right;">2022/2023</span>
+                </p>
+                <p style="margin-top:4px; margin-bottom:0; margin-left:12px; margin-right:12px;">
+                  <em>National-Level Undergraduate Innovation and Entrepreneurship Program</em>
+                  <span style="float:right;">2023</span>
+                </p>
+                <p style="margin-top:4px; margin-bottom:0; margin-left:12px; margin-right:12px;">
+                  <em>Finalist Award at Electronic Theater, Chinagraph</em>
+                  <span style="float:right;">2022</span>
+                </p>
+                <p style="margin-top:4px; margin-bottom:0; margin-left:12px; margin-right:12px;">
+                  <em>Second Prize at the Chinese Mathematics Competitions</em>
+                  <span style="float:right;">2021</span>
+                </p>
+              </td>
+            </tr>
 
             
+
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
