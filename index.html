@@ -24,7 +24,7 @@
                 </p>
                 <p>
       Hi there 👋 ! I’m a second-year Master’s student in Computer Vision at the <a href="https://www.ri.cmu.edu/">Robotics Institute</a>, <a href="https://www.cmu.edu/">Carnegie Mellon University</a>, advised by <a href="https://www.laszlojeni.com/">Prof. László A. Jeni</a>.  <br><br>
-      I’m also a member of <a href="https://anysyn3d.github.io/">AnySyn3D</a>, a non-profit research interest group for 3D vision, advised by <a href="https://www.xxlong.site/">Prof. Xiaoxiao Long</a>.
+      I’m also a member of <a href="https://anysyn3d.github.io/">AnySyn3D</a>, a nonprofit research group for 3D vision, advised by <a href="https://www.xxlong.site/">Prof. Xiaoxiao Long</a>.
                 </p>
                 <p style="text-align:center">
                   <a href="mailto:litingw@andrew.cmu.edu">Email</a> &nbsp;/&nbsp;
@@ -147,16 +147,24 @@
           <!---------------------1. game--------------------->
             <tr>
               <td colspan="2" style="padding-left:16px; padding-top:16px; padding-bottom:4px;">
-                <p style="margin:0;"><strong>• I'm a game developer 🎮 & 3D artist 🔮. I create immersive 3D worlds that speak louder than words — those wonderful moments continually fuel and inspire my research in 3D vision.</strong> </p>
+                <p style="margin:0;">
+                  <span style="background-color:#ffa51f2f; font-weight:bold;">
+                    ▪ I'm a game developer 🕹️ & 3D artist 🎨.
+                  </span>
+                  <b>Creating immersive 3D worlds is my way of expressing what words cannot. These wonderful moments continually motivate and inspire my research in 3D vision💗.</b></p>
                 <p style="margin-top:8px; margin-bottom:0;">✨ Here are some of my works in AR/VR, VFX (visual effects), 3D modeling, and games:</p>
                 <!-- <p style="margin:0;"><strong>• I'm a game developer 🎮 and 3D artist 🎨. I create immersive 3D worlds that speak louder than words — a medium for sharing my thoughts and celebrating beauty. They continually fuel and inspire my research.</strong></p> -->
               </td>
             </tr>
             <!------ 1.1 image (default) ------>
             <tr>
-              <td style="padding:16px 16px 4px 16px; width:20%; vertical-align:middle">
+              <td style="padding:2px 16px 2px 16px; width:20%; vertical-align:middle">
                 <div style="position: relative; width: 160px;">
-                  <img id="carousel-image" src="images/misc/debate.png" alt="carousel photo" width="160" style="border-style: none; display: block;">
+                  <!-- <img id="carousel-image" src="images/misc/debate.png" alt="carousel photo" width="160" style="border-style: none; display: block;"> -->
+                  <video id="carousel-video" width="160" autoplay loop muted playsinline style="display: block; border-style: none;">
+                    <source id="carousel-video-source" src="images/misc/AR_rabbit.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </td>
               <td style="padding:8px 8px 2px 8px; width:80%; vertical-align:middle">
@@ -203,7 +211,7 @@
             <script>
               const items = [
                 {
-                  img: "images/misc/debate.png",
+                  video: "images/misc/AR_rabbit.mp4",
                   caption: "Lord Rabbit: AR Application for Intangible Cultural Heritage",
                   caption0: `<strong>Liting Wen</strong>, 
                     <a>Liwei Wang</a>, 
@@ -213,7 +221,7 @@
                   caption2: "[Tools: Unity, RealityCapture] We conducted on-site 3D scanning and refinement of Lord Rabbit; developed multiple interactive features including card-based model switching, gesture-controlled rotation and scaling, and 3D model coloring.",
                 },
                 {
-                  img: "images/misc/debate.png",
+                  video: "images/misc/VFX.mp4",
                   caption: "RESET: A Futuristic VFX Short Film",
                   caption0: `<strong>Liting Wen</strong>, 
                     <a>Zimo Yang</a>`,
@@ -221,7 +229,7 @@
                   caption2: "[Tool: Nuke] We shot the original footage and created the visual effects in Nuke. The short film explores the relationship between humanity and nature in a speculative future.",
                 },
                 {
-                  img: "images/misc/debate.png",
+                  video: "images/misc/3D_land.mp4",
                   caption: "3D Reconstruction and Animation of an Ancient Chinese Landscape",
                   caption0: `<strong>Liting Wen</strong>, 
                     <a>Zimo Yang</a>, 
@@ -230,7 +238,7 @@
                   caption2: "[Tool: Blender] We reconstructed and animated mountains, sky, lake, and mist, along with their spatial interactions, in Blender, inspired by an ancient Chinese landscape painting.",
                 },
                 {
-                  img: "images/misc/debate.png",
+                  video: "images/misc/VR_game.mp4",
                   caption: "Mindscape: A VR Exploration Game",
                   caption0: `<a>Yingqi Tian</a>, 
                     <a>Zimo Yang</a>, 
@@ -240,7 +248,7 @@
                   caption2: "[Tools: Blender, Unity] We used Blender for 3D modeling and Unity for VR game development. Players explore the game world through a VR headset and controllers, engaging in interactions such as archery, foraging, NPC conversations, and treasure hunting.",
                 },
                 {
-                  img: "images/misc/debate.png",
+                  video: "images/misc/game_memory.mp4",
                   caption: "Memory Archives: An Open World Role-Playing Game",
                   caption0: `<a>Yu Sun</a>, 
                     <strong>Liting Wen</strong>, 
@@ -249,7 +257,7 @@
                   caption2: "[Tools: Unity] We developed a multi-level Unity game featuring combat, exploration, and collectible mechanics, along with custom movement controls and responsive environmental systems. Some assets were from the Unity Asset Store.",
                 },
                 {
-                  img: "images/misc/debate.png",
+                  video: "images/misc/VR_diary.mp4",
                   caption0: `<strong>Liting Wen</strong>`,
                   caption: "Virtual Diary: Roaming in VR through Gaze Interaction",
                   caption1: "",
@@ -261,7 +269,12 @@
               let current = 0;
 
               function updateCarousel() {
-                document.getElementById("carousel-image").src = items[current].img;
+                const videoElement = document.getElementById("carousel-video");
+                const videoSource = document.getElementById("carousel-video-source");
+                videoSource.src = items[current].video;
+                videoElement.load(); 
+
+                // document.getElementById("carousel-image").src = items[current].img;
                 document.getElementById("carousel-caption").textContent = items[current].caption;
                 document.getElementById("carousel-caption-0").innerHTML = items[current].caption0 || "";
                 document.getElementById("carousel-caption-1").innerHTML = items[current].caption1;
@@ -305,8 +318,12 @@
 
           <!---------------------2. debate-------------------->
             <tr>
-              <td colspan="2" style="padding-left:16px; padding-top:16px; padding-bottom:4px;">
-                <p style="margin:0;"><strong>• I'm a debater 💬. I enjoy public discussion as a way to explore and challenge the ideas behind how we see the world.</strong></p>
+              <td colspan="2" style="padding-left:16px; padding-top:8px; padding-bottom:4px;">
+                <p style="margin:0;">
+                  <span style="background-color:#ffa51f2f; font-weight:bold;">
+                    ▪ I'm a debater 💡.
+                  </span>
+                  <b>I enjoy public discussion to engage diverse perspectives and challenge how we see the world. I also take pride in mentoring students to build critical thinking and communication skills.</b></p>
               </td>
             </tr>
             <tr>
@@ -314,21 +331,24 @@
                 <img src="images/misc/debate.png" alt="debate photo" width="160" style="border-style: none">
               </td>
               <td style="padding:8px;width:80%;vertical-align:middle">
-                <em>Member of the University Debate Team, BUPT</em><br><br>
-                <em>Coach & Judge for the College Debate Team</em>
+                <em>Coach & Judge for the College Debate Team</em><br><br>
+                <em>Member of the University Debate Team, BUPT</em>
               </td>
             </tr>
             
           <!---------------------3. fencing--------------------->
             <tr>
-              <td colspan="2" style="padding-left:16px; padding-top:16px; padding-bottom:4px;">
-                <p style="margin:0;"><strong>• I'm an épée fencer 🤺. Stepping onto the piste for one-on-one combat always fires me up.</strong></p>
+              <td colspan="2" style="padding-left:16px; padding-top:8px; padding-bottom:4px;">
+                <p style="margin:0;"> <span style="background-color:#ffa51f2f; font-weight:bold;">
+                    ▪ I'm an épée fencer 🤺.
+                  </span>
+                <b>Stepping onto the piste for one-on-one combat always fires me up.</b></p>
                 <!-- <p style="margin:0;"><strong>• I'm an épée fencer 🤺, and I've recently discovered an interest in pool 🎱.</strong></p> -->
               </td>
             </tr>
             <tr>
               <td style="padding:16px;width:20%;vertical-align:middle">
-                <img src="images/misc/fencing_2.jpg" alt="fencing photo" width="160" style="border-style: none">
+                <img src="images/misc/fencing.jpg" alt="fencing photo" width="160" style="border-style: none">
               </td>
               <td style="padding:8px;width:80%;vertical-align:middle">
                 <em>Member of the Chinese Fencing Association (CFA)</em>
@@ -452,8 +472,10 @@
 
             <!---------------------5. Some Awards--------------------->
             <tr>
-              <td colspan="2" style="padding-left:16px; padding-top:16px; padding-bottom:4px;">
-                <p style="margin:0;"><strong>• Some awards: </strong></p>
+              <td colspan="2" style="padding-left:16px; padding-top:8px; padding-bottom:4px;">
+                <p style="margin:0;"><span style="background-color:#ffa51f2f; font-weight:bold;">
+                    ▪ Checkpoints 🚩: 
+                  </span></p>
                 <p style="margin-top:8px; margin-bottom:0; margin-left:12px; margin-right:12px;">
                   <em>Outstanding Graduate of Beijing</em> (Top 5%, highest graduation honor)
                   <span style="float:right;">2024</span>
