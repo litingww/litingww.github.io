@@ -1,0 +1,590 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Liting Wen ✨</title>
+
+    <meta name="author" content="Liting Wen">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/favicon/ribbon.png">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <style>
+      .speech-bubble {
+        position: relative;
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border: 2px solid #e0e0e0;
+        border-radius: 20px;
+        padding: 12px 16px;
+        margin: 15px auto;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08), 
+                    0 1px 3px rgba(0,0,0,0.05),
+                    inset 0 1px 0 rgba(255,255,255,0.9);
+        font-size: 0.9em;
+        line-height: 1.4;
+        max-width: 60%;
+        width: fit-content;
+      }
+      
+      .speech-bubble:before {
+        content: '';
+        position: absolute;
+        left: -12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 14px solid transparent;
+        border-bottom: 14px solid transparent;
+        border-right: 14px solid rgba(224,224,224,0.8);
+      }
+      
+      .speech-bubble:after {
+        content: '';
+        position: absolute;
+        left: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-right: 12px solid #ffffff;
+      }
+      
+      #speech-text {
+        font-size: 1.4em;
+        font-weight: 500;
+      }
+      
+      body {
+        margin: 0;
+        padding: 20px 0;
+        min-height: 100vh;
+        background: linear-gradient(-45deg, #ffeaeb, #ffbad985, #ffd7ff, #ffd069, rgb(255, 235, 121));
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        position: relative;
+        overflow-x: hidden;
+      }
+      
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      
+      body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+          radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+          radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+          radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+        background-size: 50px 50px, 80px 80px, 100px 100px;
+        background-position: 0 0, 20px 20px, 40px 40px;
+        animation: particleFloat 20s linear infinite;
+        pointer-events: none;
+        z-index: 0;
+      }
+      
+      @keyframes particleFloat {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-100px);
+        }
+      }
+      
+      body > table {
+        position: relative;
+        z-index: 1;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 20px auto;
+        backdrop-filter: blur(10px);
+        max-width: 1200px !important;
+        width: 95%;
+      }
+      
+      body > table tbody tr td {
+        background: transparent;
+      }
+      
+      .three-columns {
+        display: grid;
+        grid-template-columns: 1fr 2.5fr 1fr;
+        gap: 30px;
+        margin-top: 30px;
+      }
+      
+      .column {
+        padding: 20px;
+      }
+      
+      .column-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+      }
+      
+      @media (max-width: 968px) {
+        .three-columns {
+          grid-template-columns: 1fr;
+        }
+      }
+      
+      .path-selection {
+        text-align: center;
+        margin: 30px 0;
+      }
+      
+      .path-prompt {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+        line-height: 1.6;
+        color: #333;
+      }
+      
+      .pixel-button {
+        background: #9d16dcc6;
+        border: none;
+        color: white;
+        padding: 15px 30px;
+        font-size: 1.1em;
+        font-weight: bold;
+        margin: 10px;
+        cursor: pointer;
+        border: 3px solid #333;
+        box-shadow: 0 4px 0 #333, inset 0 2px 0 rgba(255,255,255,0.3);
+        text-transform: none;
+        font-family: inherit;
+        transition: all 0.1s;
+      }
+      
+      .pixel-button:hover {
+        transform: translateY(2px);
+        box-shadow: 0 2px 0 #333, inset 0 2px 0 rgba(255,255,255,0.3);
+      }
+      
+      .pixel-button:active {
+        transform: translateY(4px);
+        box-shadow: 0 0 0 #333, inset 0 2px 0 rgba(255,255,255,0.3);
+      }
+      
+      .world-content {
+        display: none;
+      }
+      
+      .world-content.active {
+        display: block;
+      }
+      
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      
+      details {
+        margin: 8px 0;
+      }
+      
+      summary {
+        cursor: pointer;
+        font-weight: 500;
+        color: #333;
+        padding: 4px 0;
+        list-style: none;
+        user-select: none;
+      }
+      
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      
+      summary::before {
+        content: '▶ ';
+        display: inline-block;
+        transition: transform 0.2s;
+        margin-right: 4px;
+        font-size: 0.8em;
+      }
+      
+      details[open] summary::before {
+        transform: rotate(90deg);
+      }
+      
+      details > p {
+        margin: 8px 0 0 20px;
+        padding-left: 8px;
+        border-left: 2px solid rgba(0, 0, 0, 0.1);
+        line-height: 1.6;
+      }
+    </style>
+    
+  </head>
+
+  <body>
+    <table style="width:100%;max-width:1200px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr style="padding:0px">
+              <td style="padding:2.5%;width:40%;vertical-align:top">
+                <a href="" ><img id="profile-photo" style="width:70%;max-width:70%; margin: 20px auto; display: block; cursor: pointer; border-radius: 50%; object-fit: cover; aspect-ratio: 1;" alt="profile photo" src="images/favicon/Liting_Version1.jpg" class="hoverZoomLink"></a>
+                <p style="text-align:center;margin-top:8px; line-height:1.5;">
+                  Credit to <a href="https://chatgpt.com/" target="_blank">ChatGPT</a>.<br>
+                  Click to meet my other avatars.
+                </p>
+              </td>
+              <td style="padding:2.5%;width:60%;vertical-align:top">
+                <p class="name" style="text-align: center; margin-top: 50px; margin-bottom: 30px;">
+        
+                  Hey hey, lucky human! <br>
+                  You just unlocked Liting’s unofficial page 🥳
+                </p>
+                <div class="speech-bubble" style="text-align: center;">
+                  <span id="speech-text"></span>
+                </div>
+                
+                <div class="path-selection">
+                  <p class="path-prompt">
+                    Liting has two things to share with you today.<br>
+                    Which one will you step into first? Pick your path:
+                  </p>
+                  <div class="button-container">
+                    <button class="pixel-button" onclick="showWorld('visual')">(1) 🎮 Visual Worlds & Games</button>
+                    <button class="pixel-button" onclick="showWorld('music')">(2) 🎶 Sound & Music</button>
+                  </div>
+                </div>
+
+              </td>
+            </tr>
+          </tbody></table>
+          
+          <div id="visual-world" class="world-content">
+          <div class="three-columns">
+            <div class="column">
+              <div class="column-title">Origins 🌱</div>
+              <p style="margin-top:8px; margin-bottom:12px; line-height: 1.6;">
+                I entered the world of video games when I was 5.
+              </p>
+              
+              <div style="margin: 15px 0; text-align: center;">
+                <img src="images/misc/gaming.png" alt="Gaming" style="max-width: 100%; height: auto;">
+              </div>
+              
+              <p style="margin-bottom:0; line-height: 1.6;">
+                I am sincerely grateful for all the amazing games that kept emerging throughout my childhood and teenage years — they accompanied me as I grew up, and I owe so much to the creators behind them.
+              </p>
+                            
+              <p style="margin-bottom:0; line-height: 1.6;">
+                I loved exploring and adventuring in virtual worlds, and I was a dedicated player of many MMORPGs.
+              </p>
+            </div>
+            
+            <div class="column">
+              <div class="column-title">Journey ✨</div>
+              
+              <p style="margin-top:8px; margin-bottom:12px;">
+                I started developing my own game during my undergrad 👾. Being an independent game developer has turned out to be far more challenging than I first imagined 🤯. To turn my ideas into reality, I kept learning new skills with every project 🔥.
+              </p>
+              
+              <p style="margin-bottom:8px; font-weight: 500;">
+                My current skill stack spans:
+              </p>
+              <ul style="margin-top:0; margin-bottom:16px; padding-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 6px;"><strong>Visual Art & Design:</strong> 3D modeling, Animation, UI design, Motion Graphics</li>
+                <li style="margin-bottom: 6px;"><strong>Interactive Systems & Engines:</strong> Unity (C#), Game Physics, AR/VR</li>
+                <li style="margin-bottom: 6px;"><strong>Audio:</strong> Music Composition, Sound Effects Design</li>
+              </ul>
+              
+              <p style="margin-bottom:16px;">
+                ✨ Here are some of my works in AR/VR, VFX (visual effects), 3D modeling, and games:
+              </p>
+
+              <div style="margin-bottom: 25px;">
+                <video width="100%" autoplay loop muted playsinline style="display: block; border-style: none; margin-bottom: 10px;">
+                  <source src="images/misc/game_memory.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <strong><papertitle>[PC Game] Memory Archives: An Open World Role-Playing Game</papertitle></strong>
+                <details>
+                  <summary>Details:</summary>
+                  <p style="margin: 0 0 8px 0; font-size: 0.95em;">
+                    Created by: <a class="a2">Yu Sun</a>, 
+                    <strong>Liting Wen</strong>, 
+                    <a class="a2">Zimo Yang</a>
+                  </p>
+                  <p style="margin: 0 0 8px 0;">Tool: Unity</p>
+                  <p style="margin: 0 0 8px 0;">Intro: We developed a multi-level Unity game featuring combat, exploration, and collectible mechanics, along with custom movement controls and responsive environmental systems. Some assets were from the Unity Asset Store.</p>
+                </details>
+              </div>
+
+              <div style="margin-bottom: 25px;">
+                <video width="100%" autoplay loop muted playsinline style="display: block; border-style: none; margin-bottom: 10px;">
+                  <source src="images/misc/3D_land.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <strong><papertitle>[3D Modeling] 3D Reconstruction and Animation of an Ancient Chinese Landscape</papertitle></strong>
+                <br>
+                <em><strong style='color:red;'>3rd Prize</strong>, Beijing College Student Animation Design Awards, 2022</em>
+                <details>
+                  <summary>Details:</summary>
+                  <p style="margin: 0 0 8px 0; font-size: 0.95em;">
+                    Created by: <strong>Liting Wen</strong>, 
+                    <a class="a2">Zimo Yang</a>, 
+                    <a class="a2">Yu Sun</a>
+                  </p>
+                  <p style="margin: 0 0 8px 0;">Tool: Blender</p>
+                  <p style="margin: 0 0 8px 0;">Intro: We reconstructed and animated mountains, sky, lake, and mist, along with their spatial interactions, in Blender, inspired by an ancient Chinese landscape painting.</p>
+                </details>
+              </div>
+              
+              <div style="margin-bottom: 25px;">
+                <video width="100%" autoplay loop muted playsinline style="display: block; border-style: none; margin-bottom: 10px;">
+                  <source src="images/misc/AR_rabbit.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <strong><papertitle>[AR] Lord Rabbit: Interactive Educational Game for Intangible Cultural Heritage</papertitle></strong>
+                <br>
+                <em><strong style='color:red;'>Grand Award</strong>, 3D Digital Innovation Design Competition, Beijing, 2023</em>
+                <details>
+                  <summary>Details:</summary>
+                  <p style="margin: 0 0 8px 0; font-size: 0.95em;">
+                    Created by: <strong>Liting Wen</strong>, 
+                    <a class="a2">Liwei Wang</a>, 
+                    <a class="a2">Yingqi Tian</a>, 
+                    <a class="a2">Zimo Yang</a>,
+                    <a class="a2">Zhenkun Zheng</a>
+                  </p>
+                  <p style="margin: 0 0 8px 0;">Tools: Unity, RealityCapture</p>
+                  <p style="margin: 0 0 8px 0;">Intro: We conducted on-site 3D scanning and refinement of Lord Rabbit; developed multiple interactive features including card-based model switching, gesture-controlled rotation and scaling, and 3D model coloring.</p>
+                </details>
+              </div>
+            
+              
+              <div style="margin-bottom: 25px;">
+                <video width="100%" autoplay loop muted playsinline style="display: block; border-style: none; margin-bottom: 10px;">
+                  <source src="images/misc/VR_game.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <strong><papertitle>[VR Game] Mindscape: A VR Exploration Game</papertitle></strong>
+                <br>
+                <em><strong style='color:red;'>2nd Prize</strong>, 3D Digital Innovation Design Competition, Beijing, 2023</em>
+                <details>
+                  <summary>Details:</summary>
+                  <p style="margin: 0 0 8px 0; font-size: 0.95em;">
+                    Created by: <a class="a2">Yingqi Tian</a>, 
+                    <a class="a2">Zimo Yang</a>, 
+                    <strong>Liting Wen</strong>, 
+                    <a class="a2">Liwei Wang</a>,
+                    <a class="a2">Zhenkun Zheng</a>
+                  </p>
+                  <p style="margin: 0 0 8px 0;">Tools: Blender, Unity</p>
+                  <p style="margin: 0 0 8px 0;">Intro: We used Blender for 3D modeling and Unity for VR game development. Players explore the game world through a VR headset and controllers, engaging in interactions such as archery, foraging, NPC conversations, and treasure hunting.</p>
+                </details>
+              </div>
+            
+              <div style="margin-bottom: 25px;">
+                <video width="100%" autoplay loop muted playsinline style="display: block; border-style: none; margin-bottom: 10px;">
+                  <source src="images/misc/VFX.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <strong><papertitle>[VFX] RESET: A Futuristic VFX Short Film</papertitle></strong>
+                <br>
+                <em><strong style='color:red;'>3rd Prize</strong>, National College Digital Art & Design Awards (China), 2023</em>
+                <details>
+                  <summary>Details:</summary>
+                  <p style="margin: 0 0 8px 0; font-size: 0.95em;">
+                    Created by: <strong>Liting Wen</strong>, 
+                    <a class="a2">Zimo Yang</a>
+                  </p>
+                  <p style="margin: 0 0 8px 0;">Tool: Nuke</p>
+                  <p style="margin: 0 0 8px 0;">Intro: We shot the real-world footage and crafted visual effects in Nuke, including camera tracking, chroma keying, compositing, etc. The short film envisions a speculative future, exploring the delicate interplay between humanity and nature.</p>
+                </details>
+              </div>
+              
+              <div style="margin-bottom: 25px;">
+                <video width="100%" autoplay loop muted playsinline style="display: block; border-style: none; margin-bottom: 10px;">
+                  <source src="images/misc/VR_diary.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <strong><papertitle>[VR] Virtual Diary: Roaming in VR via Gaze Interaction</papertitle></strong>
+                <details>
+                  <summary>Details:</summary>
+                  <p style="margin: 0 0 8px 0; font-size: 0.95em;">
+                    Created by: <strong>Liting Wen</strong>
+                  </p>
+                  <p style="margin: 0 0 8px 0;">Tool: Unity</p>
+                  <p style="margin: 0 0 8px 0;">Intro: Users roam around a virtual gallery and interact with embedded videos and images via gaze interaction. I created it as a diary to document lovely moments of my life 💕. Some assets were from the Unity Asset Store.</p>
+                </details>
+              </div>
+            </div>
+            
+            <div class="column">
+              <div class="column-title">Present 🎁</div>
+              <p style="margin-top:8px; margin-bottom:12px; line-height: 1.6;">
+                Modern game development still involves a great deal of manual production work.
+              </p>
+              
+              <p style="margin-bottom:12px; line-height: 1.6;">
+                I imagine a future where game creation becomes a form of pure artistic expression — where developers can focus on expressing their ideas, rather than being constrained by asset modeling, 3D world building, and other labor-intensive processes. (…AKA the parts that cause me the most suffering 😤)
+              </p>
+              
+              <p style="margin-bottom:0; line-height: 1.6;">
+                Now I'm at CMU pursuing research in 3D vision 💗. I hope my work can enable expressive, intelligent 3D assets and facilitate both virtual game creation and real-world applications.
+              </p>
+              <div style="margin: 15px 0; text-align: center;">
+                <img src="images/misc/cmu.png" alt="cmu" style="max-width: 90%; height: auto;">
+              </div>
+            </div>
+          </div>
+          </div>
+          
+          <div id="music-world" class="world-content">
+          <div class="three-columns">
+            <div class="column">
+              <div class="column-title">Origins 🌱</div>
+              <p style="margin-top:8px; margin-bottom:12px; line-height: 1.6;">
+                I started formal music training when I was 6. Though I'd been playing with sound since the day I arrived in the world 👶.
+              </p>
+              
+              <p style="margin-bottom:12px; line-height: 1.6;">
+                8 years of piano, 5 years of guzheng (Chinese zither), and occasional raids on my friends' practice rooms to learn random instruments (all forgotten now, but it was fun 😌). I also sang in a choir at one point.
+              </p>
+              
+              <p style="margin-bottom:12px; line-height: 1.6;">
+                And since I was 9, my favorite singer has been Eason Chan. His music shaped my taste for Chinese pop.
+              </p>
+              <div style="margin: 15px 0; text-align: center;">
+                <img src="images/misc/music.gif" alt="Music" style="max-width: 100%; height: auto;">
+              </div>
+              
+              <p style="margin-bottom:0; line-height: 1.6;">
+                In undergrad, I also tried learning a bit of rap, thinking it would level up my debate performance. (Results remain inconclusive 🤷‍♀️.)
+              </p>
+
+            </div>
+            
+            <div class="column">
+              <div class="column-title">Journey ✨</div>
+              <p style="margin-top:8px; margin-bottom:0; line-height: 1.6;">
+                As I mentioned on my games page, I somehow found myself learning modern music-production tools. Now I create music with them, blending years of traditional instrument training with whatever modern audio techniques I've managed to acquire.
+              </p>
+            </div>
+            
+            <div class="column">
+              <div class="column-title">Present 🎁</div>
+              <p style="margin-bottom:0; line-height: 1.6;">
+                I hope music will always remain a natural, serendipitous surprise in my life 🎊. (== no concrete plan. Just letting music find me.)
+              </p>
+              <div style="margin: 15px 0; text-align: center;">
+                <img src="images/misc/sunset.jpg" alt="sunset" style="max-width: 100%; height: auto;">
+              </div>
+              <p>
+                (Sometimes when I finish work early, I love taking a detour at moments like this 🌇 and playing an Eason Chan song about sunsets. The 2010 version is my favorite!)
+              </p>
+            </div>
+          </div>
+          </div>
+          
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:0px;width:50%;vertical-align:top">
+                <br>
+                <p style="text-align:left;font-size:small; line-height: 1.6; color: #666;">
+                  Art and music are essential elements of Liting's world.<br>
+                  Thank you for being here. Wishing you a lovely, happy day!
+                </p>
+              </td>
+              <td style="padding:0px;width:50%;vertical-align:top">
+                <br>
+                <p style="text-align:right;font-size:small; line-height: 1.6; color: #666;">
+                  Liting always enjoys chatting with people. Her contact info is encoded on her <a href="index.html" target="_blank" ">official homepage</a>.<br>
+                  You can also take a look at some of her research when she's not chatting or making games.
+                </p>
+              </td>
+            </tr>
+          </tbody></table>
+        </td>
+      </tr>
+    </table>
+    
+    <script>
+      const profilePhotos = [
+        'images/favicon/Liting_Version1.jpg',
+        'images/favicon/Liting_cockroach.jpg',
+        'images/favicon/Liting_mushroom.jpg',
+      ];
+      
+      let currentPhotoIndex = 0;
+      const profilePhoto = document.getElementById('profile-photo');
+      const profileLink = profilePhoto.parentElement;
+      
+      profilePhoto.addEventListener('click', function(e) {
+        e.preventDefault();
+        currentPhotoIndex = (currentPhotoIndex + 1) % profilePhotos.length;
+        profilePhoto.src = profilePhotos[currentPhotoIndex];
+        profileLink.href = profilePhotos[currentPhotoIndex];
+      });
+      
+      function typeWriter(element, text, speed = 80) {
+        let i = 0;
+        element.textContent = '';
+        function type() {
+          if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+      
+      window.addEventListener('DOMContentLoaded', function() {
+        const speechText = document.getElementById('speech-text');
+        const text = 'Has your idea worked 😈?';
+        typeWriter(speechText, text, 80);
+      });
+      
+      function showWorld(worldType) {
+        const visualWorld = document.getElementById('visual-world');
+        const musicWorld = document.getElementById('music-world');
+        const pathSelection = document.querySelector('.path-selection');
+        
+        if (worldType === 'visual') {
+          visualWorld.classList.add('active');
+          musicWorld.classList.remove('active');
+          setTimeout(() => {
+            window.scrollTo({ top: visualWorld.offsetTop - 100, behavior: 'smooth' });
+          }, 100);
+        } else if (worldType === 'music') {
+          musicWorld.classList.add('active');
+          visualWorld.classList.remove('active');
+          setTimeout(() => {
+            window.scrollTo({ top: musicWorld.offsetTop - 100, behavior: 'smooth' });
+          }, 100);
+        }
+      }
+    </script>
+  </body>
+</html>
