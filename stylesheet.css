@@ -194,3 +194,7 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
+tr.highlight-row {
+    background-color: #fff9d6b1;
+}
