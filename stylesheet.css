@@ -119,7 +119,7 @@ a:hover {
 }
 
 .carousel-button:hover {
-  background-color: #8013d4;
+  background-color: #ffac30;
 }
 
 
@@ -197,4 +197,26 @@ span.highlight {
 
 tr.highlight-row {
     background-color: #fffadc93;
+}
+/* "View My Gallery Here!" pill button (Miscellanea) */
+a.gallery-btn {
+  display: inline-block;
+  padding: 3px 14px;
+  margin-left: 4px;
+  border-radius: 999px;
+  font-size: inherit;
+  background: #7e67ff;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.6;
+  text-decoration: none;
+  box-shadow: 0 1px 4px rgba(126, 103, 255, .35);
+  transition: background .15s, transform .15s;
+}
+a.gallery-btn:hover,
+a.gallery-btn:focus {
+  background: #ffac30;
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
